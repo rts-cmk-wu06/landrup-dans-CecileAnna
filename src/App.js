@@ -1,4 +1,3 @@
-import "./App.css";
 import LoginPage from "./routes/LoginPage";
 import Missing from "./routes/Missing";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";

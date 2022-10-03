@@ -13,13 +13,13 @@
 @import "./components/texts";
 @import "./components/menu";
 @import "./components/page-header";
-@import "./components/activities-cards";
+@import "./components/activities-card";
 @import "./components/calendar-card";
 
 // routes (welcome, classes, login etc)
 @import "./routes/welcome";
-@import "./routes/classes";
-@import "./routes/classes-details";
+@import "./routes/activities";
+@import "./routes/activity-details";
 @import "./routes/login";
 @import "./routes/search";
 

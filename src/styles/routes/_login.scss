@@ -16,13 +16,13 @@
 
 .login--input {
   border-radius: 50px;
-  background-color: $light-grey;
-  border: solid 0.1rem $medium-grey;
+  background-color: $white;
+  border: solid 0.1rem $grey;
   text-indent: 2rem;
   color: $grey;
   cursor: pointer;
   &::placeholder {
-    color: $medium-grey;
+    color: $grey;
   }
 }
 
