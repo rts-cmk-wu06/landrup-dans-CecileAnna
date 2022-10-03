@@ -1,0 +1,29 @@
+// variables & functions
+@import "properties";
+// base & layout
+@import "cssreset";
+//utility classes
+@import "utility-classes";
+
+// colors
+
+// components (button, card, navbar etc)
+@import "./components/btn";
+@import "./components/icons";
+@import "./components/texts";
+@import "./components/menu";
+@import "./components/page-header";
+@import "./components/activities-cards";
+@import "./components/calendar-card";
+
+// routes (welcome, classes, login etc)
+@import "./routes/welcome";
+@import "./routes/classes";
+@import "./routes/classes-details";
+@import "./routes/login";
+@import "./routes/search";
+
+// utilities (margin, padding, opacity, etc)
+
+// font
+@import url("https://use.typekit.net/wfj6cre.css");

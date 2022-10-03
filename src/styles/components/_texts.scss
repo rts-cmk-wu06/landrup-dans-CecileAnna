@@ -1,0 +1,55 @@
+.heading2 {
+  color: $purple;
+  font-size: 4rem;
+  font-weight: $font-weight-bold;
+  padding: 1rem 2rem;
+}
+.heading3 {
+  color: $black;
+  font-size: 1.80rem;
+  font-weight: $font-weight-regular;
+}
+
+.heading4 {
+  color: $black;
+  font-size: 1.6rem;
+  font-weight: $font-weight-bold;
+}
+
+.heading5 {
+  color: $black;
+  font-size: 1.2rem;
+  font-weight: $font-weight-semi-bold;
+  word-spacing: 0.1rem;
+  &-smaller {
+    font-size: 1rem;
+  }
+}
+
+//sub-heading
+.sub-heading {
+  display: flex;
+  flex-flow: row nowrap;
+  color: $white;
+  &--line {
+    border-top: 0.25rem solid $white;
+    width: 1.5rem;
+    align-self: center;
+    margin-right: 0.6rem;
+    &-black {
+      border-top: 0.25rem solid $black; 
+    }
+  }
+  &--text {
+    font-weight: $font-weight-bold;
+    font-size: 1.4rem;
+    word-spacing: 0.1rem;
+  }
+}
+
+.paragraf {
+  color: $black;
+  font-size: 1.3rem;
+  line-height: 1.55rem;
+  font-weight: $font-weight-medium;
+}

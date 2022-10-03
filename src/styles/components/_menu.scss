@@ -1,0 +1,13 @@
+.menu {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  z-index: 10;
+  width: 101vw;
+  height: 20vh;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: $grey;
+}
+

@@ -1,0 +1,61 @@
+.width-100-percent {
+  width: 100%;
+}
+
+.wrapper-center-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+  flex-flow: column nowrap;
+  height: 88vh;
+  width: 100%;
+  padding: 1.5rem;
+  gap: 2rem;
+}
+
+.main-padding {
+  padding: 4rem;
+}
+.top-padding-4rem {
+  padding-top: 4rem;
+}
+.top-padding-6rem {
+  padding-top: 4rem;
+}
+
+.position-sticky {
+  position: sticky;
+}
+
+.justify-content-flex-start {
+  justify-content: flex-start;
+}
+//color classes
+
+.white-color-important {
+  color: $white !important;
+}
+.black-color-important {
+  color: $black !important;
+}
+.yellow-color-important {
+  color: $purple !important;
+}
+.grey-color-important {
+  color: $grey !important;
+}
+
+//font weights
+
+.font-weight-regular {
+  font-weight: $font-weight-regular;
+}
+.font-weight-medium {
+  font-weight: $font-weight-medium;
+}
+.font-weight-semi-bold {
+  font-weight: $font-weight-semi-bold;
+}
+.font-weight-bold {
+  font-weight: $font-weight-bold;
+}

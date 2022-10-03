@@ -1,0 +1,16 @@
+.page-header--wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  z-index: 99;
+
+  &-title-arrow {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: left;
+    align-items: center;
+    gap: 0.4rem;
+  }
+}

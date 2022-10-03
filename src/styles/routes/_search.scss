@@ -1,0 +1,64 @@
+.search--content-wrapper {
+    gap: 1rem;
+}
+.search--input-icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.search--input {
+  background-color: $light-grey;
+  border: 0.15rem solid $medium-grey;
+  border-radius: 50px;
+  text-indent: 3.5rem;
+  &::placeholder {
+    color: $grey;
+    font-family: $font;
+    font-weight: $font-weight-regular;
+    font-size: 1.2rem;
+  }
+}
+
+.search--icon {
+  position: relative;
+  top: -5.1vh;
+  left: -9.3rem;
+  font-size: 1.3rem;
+  z-index: 3;
+}
+
+.Search--title {
+    font-weight: $font-weight-bold;
+    padding: 0;
+    margin: 0;
+}
+.search--trainer-card {
+    margin-top: 0;
+}
+.search--trainers-cards-container {
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-rows: 40%;
+    overflow-x: auto;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+}
+.search--classes-cards-container {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 42%;
+    gap: 1rem;
+    overflow-x: auto;
+    position: relative;
+    width: 100%;
+    height: 55vh;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+}

@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+Céciles svendeprøve dokumentation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Tech-Stack:
 
-In the project directory, you can run:
+Jeg har valgt at bruge React for at imødekomme kravet om en komponent baseret tilgang. Desuden er React meget populært og mange arbejdsgivere efterspørger evnen, så jeg er interesseret i at lære det godt for øge chancen for at blive ansat efter studiet. 
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Grundlæggende teknologier:
+HTML
+CSS
+JavaScript
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+Core Frameworks:
+Sass/SCSS – stylesheet sprog, en forøget made at bruge CSS. 
+Tech-Stack perspektivering: 
+Jeg foretrækker at kode alle klasser selv, for bedre at kunne have et overblik og styre alle egenskaber, derfor foretrækker jeg Sass overfor andre pakker såsom Tailwind, der allerede har predefinerede klasser.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+Core libraries:
+React.js — komponent baseret bibliotek, der bruger JavaScript og JSX til at tillade at man blander HTML og Javascript på en effektiv måde, der også er hurtig til at loade pga. en virtuel DOM, hvilket er én af grundene til React er blevet så populær. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Tech-Stack perspektivering:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Code API’s:
+Context – Global stage håndtering
+Tech-Stack perspektivering:
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Core packets:
+React-router-dom 
+React-icons 
+Axios 
+(Yup – måske brugt, hvis jeg kan nå at validere eventuelle fomularer)
+Tech-Stack perspektivering:
+-	Med Axios for man data konverteringen forærende modsat med Fetch.
+-	Jeg har brugt React-router-dom for at lave en One Page Applikation, der loader hurtigt og gør brugeroplevelsen god.
+-	React-Icons gør det muligt at nemt at importere og bruge et bredt udvalg af ikoner til ens komponenter, og gøre det muligt nemt at redigere størrelse og farve af ikonet også.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Versionsstyring:
+Github – Jeg bruger Github til at pushe & commit mit arbejde, for at have et overblik og have adgang til koden online. Jeg har gjort en ære ud af at commite hver gang jeg var færdig med delopgaver, fx header, og skrive meningsfulde commit-beskeder. 
+Tech-Stack perspektivering:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Proces dokumentation:
+Trello – et kanban board. Link: https://trello.com/invite/b/2qRKmim7/82309d59aa7c7d72032165b790467c64/svendeproevetrello
+Tech-Stack perspektivering:
+Jeg foretrækker Trello’s processtyrings værktøj, eftersom UI og design for mig er mere overskueligt og, ærlig talt, sjovt og farverigt også, end GitHubs eget Kanban processtyrings alternativ (der er mindre farverigt og mere tørt og svært at navigere i efter min mening). 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Deploy process:
+Netlify – kan kobles til Github og dermed nemt sætte hjemmesiden online derigennem. For at kunne deploy’e bliver man nødt til at lave en fork af projektet til min personlige github konto, da det ikke er muligt direkte fra eksamens repository’et. 
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Projekt perspektivering:
+1.	Skalering fremover: yderligere funktionalitet man kunne overveje…
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2.	Forbedrings muligheder: for at undgå og minimere bugs, og gøre debugging nemmere, kunne det være smart at bruge typescript, hvor man sætter data-typer på koden. 
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Kode til særlig bedømmelse: 
 
-### Making a Progressive Web App
+Jeg vil i min præsentation kommer nærmere ind på … 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+(screen-shot ell. kode)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

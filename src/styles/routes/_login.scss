@@ -1,0 +1,32 @@
+.login {
+  justify-content: flex-start;
+  margin: 2rem 0 0 0;
+}
+.login--subheading {
+  position: absolute;
+  left: 0;
+  top: 26vh;
+}
+.login--form {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1.5rem;
+  margin: 4rem 0 0 0;
+}
+
+.login--input {
+  border-radius: 50px;
+  background-color: $light-grey;
+  border: solid 0.1rem $medium-grey;
+  text-indent: 2rem;
+  color: $grey;
+  cursor: pointer;
+  &::placeholder {
+    color: $medium-grey;
+  }
+}
+
+.login--form-heading {
+  font-weight: $font-weight-semi-bold;
+  font-size: 1.3rem;
+}

@@ -1,0 +1,67 @@
+.class-details--hero-top {
+  width: 100%;
+  height: 50vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: top left;
+  background-color: hotpink;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-flow: row wrap;
+  z-index: -1;
+  padding: 8rem 0 0 0;
+  justify-content: left;
+  align-items: center;
+  gap: 0.6rem;
+}
+.class-details--title {
+  font-size: 2.8rem;
+  width: 100%;
+  top: 3rem;
+  position: relative;
+}
+
+.class-details--stars {
+  margin: -1rem 0 0 2rem;
+}
+
+.class-details--rating-text {
+  // padding: 0 0 0 0.7rem;
+  margin: -0.6rem 0 0 0;
+  font-weight: $font-weight-bold;
+  align-self: center;
+}
+
+.class-details--btn {
+  background-color: transparent;
+  border: 0.23rem solid $yellow;
+  color: $yellow;
+  font-weight: $font-weight-bold;
+  padding: 1.15rem 2rem;
+  border-radius: 50px;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  margin: 0 0 0 3.5rem;
+}
+
+.class-details--description-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  height: 100%;
+  margin: 39vh 0 0 0;
+}
+
+.class-details--description {
+  margin: 1.5rem 0 0 0;
+}
+
+.class-details--trainer-title {
+  margin: 3rem 0 0 0;
+}
+
+.class-details--sign-up-btn {
+  margin: 3rem 0 0 0;
+}
