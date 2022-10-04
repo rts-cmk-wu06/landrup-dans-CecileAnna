@@ -8,7 +8,13 @@
 }
 
 .menu-icon {
-  font-size: 3.5rem;
+  font-size: 1.8rem;
   font-weight: 900;
-  color: $grey;
+  color: $black;
+  &--calendar {
+    font-size: 1.6rem;
+  }
+  &--search {
+    font-size: 1.3rem;
+  }
 }
