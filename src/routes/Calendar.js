@@ -1,12 +1,12 @@
 import FooterMenu from "../components/FooterMenu";
 
-const Search = () => {
+const Calendar = () => {
   return (
     <>
-      <h2>This is a search page!</h2>
+      <h2>This is a page for the calendar</h2>
       <FooterMenu/>
     </>
   );
 };
 
-export default Search;
+export default Calendar;

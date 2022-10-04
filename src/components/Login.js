@@ -42,12 +42,14 @@ const Login = () => {
       //console.log(JSON.stringify(response));
       const token = response?.data?.token;
       const userId = response?.data?.userId;
+      const role = response?.data?.role;
 
       setAuth({
         user,
         pwd,
         token,
         userId,
+        role  
       });
 
       console.log(auth && auth);
