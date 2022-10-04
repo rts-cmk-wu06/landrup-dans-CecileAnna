@@ -50,6 +50,7 @@ Jeg foretrækker Trello’s processtyrings værktøj, eftersom UI og design for 
 
 Deploy process:
 Netlify – kan kobles til Github og dermed nemt sætte hjemmesiden online derigennem. For at kunne deploy’e bliver man nødt til at lave en fork af projektet til min personlige github konto, da det ikke er muligt direkte fra eksamens repository’et. 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3304d1ae-ee79-4bf8-9733-cb5c7d9a3226/deploy-status)](https://app.netlify.com/sites/landrup-dans-netlify/deploys)
 
 
 Projekt perspektivering:
