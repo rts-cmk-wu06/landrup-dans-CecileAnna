@@ -1,0 +1,14 @@
+.footer-menu {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  z-index: 10;
+  width: 101vw;
+  height: 9vh;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: $grey;
+}
