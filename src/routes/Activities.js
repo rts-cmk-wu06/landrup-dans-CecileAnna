@@ -5,6 +5,7 @@ import ActivitiesCard from "../components/ActivitiesCard";
 import axios from "../apis/axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import LoginIcon from "../components/subcomponents/icons/LoginIcon";
 
 const ACTIVITIES_URL = "api/v1/activities";
 
@@ -13,6 +14,7 @@ const Activities = () => {
 
   useEffect(() => {
     fetchActivities();
+    // eslint-disable-next-line
   }, [activitiesData?.length]);
 
   const fetchActivities = async () => {
@@ -32,7 +34,12 @@ const Activities = () => {
   return (
     <>
       <WrapperCenterContent>
-        <Heading2 text="Aktiviteter" />
+        <div className="activities--heading-wrapper">
+          <Heading2 text="Aktiviteter" />
+          <Link to={`/login`} style={{ textDecoration: "none" }}>
+            <LoginIcon />
+          </Link>
+        </div>
 
         {activitiesData[0] && (
           <div className="activities-cards-container">

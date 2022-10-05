@@ -1,10 +1,15 @@
 import { useRef, useState, useEffect } from "react";
 import { useAuth } from "../context/AuthProvider";
 import axios from "../apis/axios";
+import Heading5 from "./subcomponents/texts/Heading5";
+import Btn from "./Btn";
+import { useNavigate } from "react-router-dom";
 
 const LOGIN_URL = "auth/token";
 
 const Login = () => {
+  let navigate = useNavigate();
+
   const userRef = useRef();
   const errRef = useRef();
 
@@ -49,13 +54,15 @@ const Login = () => {
         pwd,
         token,
         userId,
-        role  
+        role,
       });
 
       console.log(auth && auth);
 
       setUser("");
       setPwd("");
+
+      navigate("/activities");
     } catch (err) {
       if (!err?.response) {
         setErrMsg("No server response");
@@ -72,46 +79,44 @@ const Login = () => {
 
   return (
     <>
-      <main className="App-main">
-        <section>
-          <p
-            ref={errRef}
-            aria-live="assertive"
-            style={errMsg ? { display: "block" } : { display: "none" }}
-          >
-            {errMsg}
-          </p>
+      <section>
+        <Heading5
+          ref={errRef}
+          ariaLive="assertive"
+          styles={errMsg ? "login--err-msg-block" : "login--err-msg-none"}
+          text={errMsg}
+        />
 
-          <h1>Log ind</h1>
+        <form
+          onSubmit={handleSubmit}
+          // style={{ display: "flex", flexFlow: "column nowrap", gap: "1rem" }}
+          className="login--form"
+        >
+          <input
+            type="text"
+            id="username"
+            ref={userRef}
+            autoComplete="off"
+            onChange={(e) => setUser(e.target.value)}
+            value={user}
+            required
+            placeholder="brugernavn"
+            className="login--input"
+          />
 
-          <form
-            onSubmit={handleSubmit}
-            style={{ display: "flex", flexFlow: "column nowrap", gap: "1rem" }}
-          >
-            <input
-              type="text"
-              id="username"
-              ref={userRef}
-              autoComplete="off"
-              onChange={(e) => setUser(e.target.value)}
-              value={user}
-              required
-              placeholder="brugernavn"
-            />
+          <input
+            type="password"
+            id="password"
+            onChange={(e) => setPwd(e.target.value)}
+            value={pwd}
+            required
+            placeholder="adgangskode"
+            className="login--input"
+          />
 
-            <input
-              type="password"
-              id="password"
-              onChange={(e) => setPwd(e.target.value)}
-              value={pwd}
-              required
-              placeholder="adgangskode"
-            />
-
-            <button>Sign in</button>
-          </form>
-        </section>
-      </main>
+          <Btn text="Log ind" styles="login--btn" />
+        </form>
+      </section>
     </>
   );
 };

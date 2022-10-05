@@ -27,7 +27,7 @@
   padding: 0 1rem 1.7rem 3rem;
   line-height: 3.1rem;
   border-bottom: 1rem solid #913693;
-  box-shadow: 0 0.3rem 0.15rem rgba(67, 65, 65, 0.35);
+  box-shadow: -1rem 0.3rem 0.15rem rgba(67, 65, 65, 0.35);
 }
 .welcome--title {
   font-family: $logo-font-2;
@@ -46,8 +46,8 @@
     -webkit-text-fill-color: #e15cf2;
     -webkit-text-stroke-color: $black;
     -webkit-text-stroke-width: 0.1px;
-    transition: all 0.75s ease;
-    animation: animateFonts 1.5s;
+    transition: all 0.55s ease;
+    animation: animateFonts 0.55s ease;
   }
 }
 

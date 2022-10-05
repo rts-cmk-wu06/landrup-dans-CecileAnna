@@ -27,6 +27,7 @@ const ActivityDetails = () => {
 
   useEffect(() => {
     fetchActivity();
+    // eslint-disable-next-line 
   }, [activityData?.id]);
 
   const fetchActivity = async () => {
