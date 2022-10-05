@@ -1,5 +1,8 @@
-.search--content-wrapper {
-    gap: 1rem;
+.search--input-wrapper {
+  display: block;
+}
+.search--wrapper {
+  gap: 1rem;
 }
 .search--input-icon-wrapper {
   display: flex;
@@ -9,56 +12,30 @@
   width: 100%;
 }
 .search--input {
-  background-color: $white;
-  border: 0.15rem solid $grey;
-  border-radius: 50px;
-  text-indent: 3.5rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  text-indent: 2rem;
+  cursor: pointer;
+  width: 100%;
+  height: 6vh;
   &::placeholder {
-    color: $grey;
-    font-family: $font;
-    font-weight: $font-weight-regular;
+    color: darken($grey, 20%);
     font-size: 1.2rem;
   }
 }
 
 .search--icon {
+  color: white;
   position: relative;
-  top: -5.1vh;
-  left: -9.3rem;
-  font-size: 1.3rem;
-  z-index: 3;
+  top: -2.5rem;
+  left: 18.5rem;
+  font-size: 1.6rem;
 }
 
 .Search--title {
-    font-weight: $font-weight-bold;
-    padding: 0;
-    margin: 0;
+  font-weight: $font-weight-bold;
+  padding: 0;
+  margin: 0;
 }
-.search--trainer-card {
-    margin-top: 0;
-}
-.search--trainers-cards-container {
-    display: grid;
-    grid-auto-flow: row;
-    grid-auto-rows: 40%;
-    overflow-x: auto;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-}
-.search--classes-cards-container {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 42%;
-    gap: 1rem;
-    overflow-x: auto;
-    position: relative;
-    width: 100%;
-    height: 55vh;
-    &::-webkit-scrollbar {
-      display: none;
-    }
+.search--activities-cards-container {
+  grid-auto-rows: 62%;
 }

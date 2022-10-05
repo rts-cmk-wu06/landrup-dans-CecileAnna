@@ -86,7 +86,11 @@ const Login = () => {
           ref={errRef}
           className="Heading5"
           aria-live="assertive"
-          style={errMsg ? { display: "block" } : { display: "none" }}
+          style={
+            errMsg
+              ? { display: "block", color: "darkred" }
+              : { display: "none" }
+          }
         >
           {errMsg}
         </h3>
