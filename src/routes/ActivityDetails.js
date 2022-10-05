@@ -54,6 +54,8 @@ const ActivityDetails = () => {
         container.age = user.age;
         container.firstname = user.firstname;
         container.lastname = user.lastname;
+        container.acvitityWeekday = activityData?.weekday
+        container.acvitityTime = activityData?.time
 
         if (user?.id === auth?.userId) {
           setSignedUp(true);
