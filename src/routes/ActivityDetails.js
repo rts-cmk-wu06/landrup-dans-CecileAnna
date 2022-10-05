@@ -1,23 +1,26 @@
 import axios from "../apis/axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-// import { useAuth } from "../context/AuthProvider";
+import { useAuth } from "../context/AuthProvider";
+import { Link } from "react-router-dom";
 
 import FooterMenu from "../components/FooterMenu";
 import WrapperCenterContent from "../components/WrapperCenterContent";
 import Heading3 from "../components/subcomponents/texts/Heading3";
+import Heading5 from "../components/subcomponents/texts/Heading5";
 import Paragraf from "../components/subcomponents/texts/Paragraf";
 import Btn from "../components/Btn";
+import LoginIcon from "../components/subcomponents/icons/LoginIcon";
 
 const ActivityDetails = () => {
-  // const useA = useAuth();
-  // const setAuth = useA.setAuth;
-  // const auth = useA.auth;
+  const useA = useAuth();
+  const auth = useA.auth;
+
+  const login = auth.login;
 
   // console.log(auth);
 
-  const login = true;
-  const signedUp = false;
+  const [signedUp, setSignedUp] = useState(false);
 
   let { id } = useParams();
 
@@ -27,7 +30,7 @@ const ActivityDetails = () => {
 
   useEffect(() => {
     fetchActivity();
-    // eslint-disable-next-line 
+    // eslint-disable-next-line
   }, [activityData?.id]);
 
   const fetchActivity = async () => {
@@ -42,6 +45,26 @@ const ActivityDetails = () => {
     } catch (err) {
       console.log(err);
     }
+
+    const activityUsersArray = activityData?.users?.map((user) => {
+      const container = {};
+      if (auth?.userId) {
+        container.username = user.username;
+        container.userId = user.id;
+        container.age = user.age;
+        container.firstname = user.firstname;
+        container.lastname = user.lastname;
+
+        if (user?.id === auth?.userId) {
+          setSignedUp(true);
+        }
+      }
+      return container;
+    });
+
+    console.log(activityUsersArray && activityUsersArray);
+
+    // console.log(signedUp);
   };
 
   return (
@@ -58,6 +81,19 @@ const ActivityDetails = () => {
               })`,
             }}
           >
+            {!login && (
+              <Link
+                to={`/login`}
+                style={{
+                  textDecoration: "none",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                <Heading5 text="Log in" styles="white-color-important" />
+                <LoginIcon />
+              </Link>
+            )}
             {login && (
               <Btn
                 text={signedUp ? "Forlad" : "Tilmeld"}

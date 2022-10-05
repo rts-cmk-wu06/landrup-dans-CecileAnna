@@ -6,10 +6,19 @@ import axios from "../apis/axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import LoginIcon from "../components/subcomponents/icons/LoginIcon";
+import { useAuth } from "../context/AuthProvider";
+import Heading5 from "../components/subcomponents/texts/Heading5";
 
 const ACTIVITIES_URL = "api/v1/activities";
 
 const Activities = () => {
+  const useA = useAuth();
+  const auth = useA.auth;
+
+  console.log(auth);
+
+  const login = auth.login;
+
   const [activitiesData, setActivitiesData] = useState("");
 
   useEffect(() => {
@@ -25,7 +34,7 @@ const Activities = () => {
 
       setActivitiesData(activities);
 
-      console.log(activitiesData && activitiesData);
+      // console.log(activitiesData && activitiesData);
     } catch (err) {
       console.log(err);
     }
@@ -36,9 +45,19 @@ const Activities = () => {
       <WrapperCenterContent>
         <div className="activities--heading-wrapper">
           <Heading2 text="Aktiviteter" />
-          <Link to={`/login`} style={{ textDecoration: "none" }}>
-            <LoginIcon />
-          </Link>
+          {!login && (
+            <Link
+              to={`/login`}
+              style={{
+                textDecoration: "none",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <Heading5 text="Log in" styles="white-color-important" />
+              <LoginIcon />
+            </Link>
+          )}
         </div>
 
         {activitiesData[0] && (

@@ -1,7 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { useAuth } from "../context/AuthProvider";
 import axios from "../apis/axios";
-import Heading5 from "./subcomponents/texts/Heading5";
 import Btn from "./Btn";
 import { useNavigate } from "react-router-dom";
 
@@ -19,7 +18,7 @@ const Login = () => {
 
   const useA = useAuth();
   const setAuth = useA.setAuth;
-  const auth = useA.auth;
+  // const auth = useA.auth;
 
   useEffect(() => {
     userRef.current.focus();
@@ -48,6 +47,7 @@ const Login = () => {
       const token = response?.data?.token;
       const userId = response?.data?.userId;
       const role = response?.data?.role;
+      const login = true;
 
       setAuth({
         user,
@@ -55,9 +55,11 @@ const Login = () => {
         token,
         userId,
         role,
+        login,
       });
 
-      console.log(auth && auth);
+      // console.log(auth && auth);
+      console.log(response?.data && response?.data);
 
       setUser("");
       setPwd("");
@@ -80,12 +82,14 @@ const Login = () => {
   return (
     <>
       <section>
-        <Heading5
+        <h3
           ref={errRef}
-          ariaLive="assertive"
-          styles={errMsg ? "login--err-msg-block" : "login--err-msg-none"}
-          text={errMsg}
-        />
+          className="Heading5"
+          aria-live="assertive"
+          style={errMsg ? { display: "block" } : { display: "none" }}
+        >
+          {errMsg}
+        </h3>
 
         <form
           onSubmit={handleSubmit}
