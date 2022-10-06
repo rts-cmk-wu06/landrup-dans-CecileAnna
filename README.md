@@ -63,7 +63,7 @@ Projekt perspektivering:
 
 Kode til særlig bedømmelse: 
 
-Jeg vil i min præsentation kommer nærmere ind på min brug af Axios sammen med state til min login funktionalitet. 
+Jeg vil i min præsentation kommer nærmere ind på min brug af Axios og React Context. 
 
 Kode fra axios.js fil:
 ```
@@ -73,7 +73,7 @@ export default axios.create({
   baseURL: "http://localhost:4000/",
 });
 ```
-Kode fra contect i AuthProvider.js
+Kode fra Context i AuthProvider.js
 ```
 import { createContext, useState, useContext } from "react";
 
