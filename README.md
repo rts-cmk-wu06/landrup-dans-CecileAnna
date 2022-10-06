@@ -26,14 +26,14 @@ Tech-Stack perspektivering:
 
 Code API’s:
 Context – Global stage håndtering
-Tech-Stack perspektivering:
+Tech-Stack perspektivering: Context er en smart måde at have variabler tilgengelig ove rhele hjemmesiden, et meget bedre alternativ en fx prop-drilling, hvor man skal have dataen gennem mange props og komponenter, før de kommer det rigtige sted hen. Det er selvfølgelig over-kill at bruge context til data der kun bruges ét sted, så det er med at finde de eksempler, hvor daten skal bruges flere steder - kompleks state, kalder man det også. Jeg har brug context til login informationer.
 
 
 Core packets:
 React-router-dom 
 React-icons 
 Axios 
-(Yup – måske brugt, hvis jeg kan nå at validere eventuelle fomularer)
+
 Tech-Stack perspektivering:
 -	Med Axios for man data konverteringen forærende modsat med Fetch.
 -	Jeg har brugt React-router-dom for at lave en One Page Applikation, der loader hurtigt og gør brugeroplevelsen god.
@@ -54,7 +54,7 @@ Netlify – kan kobles til Github og dermed nemt sætte hjemmesiden online derig
 
 
 Projekt perspektivering:
-1.	Skalering fremover: yderligere funktionalitet man kunne overveje…
+1.	Skalering fremover: yderligere funktionalitet man kunne overveje at lade danselæreren afmelde elever; hvis de er strenge eller af andre omstændigheder ikke selv kan finde ud af at afmelde sig et hold eksempelvis.  
 
 2.	Forbedrings muligheder: for at undgå og minimere bugs, og gøre debugging nemmere, kunne det være smart at bruge typescript, hvor man sætter data-typer på koden. 
 
@@ -63,7 +63,65 @@ Projekt perspektivering:
 
 Kode til særlig bedømmelse: 
 
-Jeg vil i min præsentation kommer nærmere ind på … 
+Jeg vil i min præsentation kommer nærmere ind på min brug af Axios sammen med state til min login funktionalitet. 
 
-(screen-shot ell. kode)
+Kode fra axios.js fil:
+```
+import axios from "axios";
 
+export default axios.create({
+  baseURL: "http://localhost:4000/",
+});
+```
+Kode fra contect i AuthProvider.js
+```
+import { createContext, useState, useContext } from "react";
+
+const AuthContext = createContext({});
+
+export function useAuth() {
+  return useContext(AuthContext);
+}
+
+export const AuthProvider = ({ children }) => {
+  const [auth, setAuth] = useState({});
+
+  return (
+    <AuthContext.Provider value={{ auth, setAuth }}>{children}</AuthContext.Provider>
+  );
+};
+```
+Axios fetch eksempel fra activities.js
+```
+import axios from "../apis/axios";
+import { useState, useEffect } from "react";
+import { useAuth } from "../context/AuthProvider";
+
+const ACTIVITIES_URL = "api/v1/activities";
+
+const Activities = () => {
+  const useA = useAuth();
+  const auth = useA.auth;
+
+  const login = auth.login;
+
+  const [activitiesData, setActivitiesData] = useState("");
+
+  useEffect(() => {
+    fetchActivities();
+    // eslint-disable-next-line
+  }, [activitiesData?.length]);
+
+  const fetchActivities = async () => {
+    try {
+      const response = await axios.get(ACTIVITIES_URL);
+
+      let activities = response?.data;
+
+      setActivitiesData(activities);
+
+    } catch (err) {
+      console.log(err);
+    }
+  };
+```
