@@ -1,8 +1,7 @@
 import axios from "../apis/axios";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { useAuth } from "../context/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import FooterMenu from "../components/FooterMenu";
 import WrapperCenterContent from "../components/WrapperCenterContent";
@@ -54,8 +53,8 @@ const ActivityDetails = () => {
         container.age = user.age;
         container.firstname = user.firstname;
         container.lastname = user.lastname;
-        container.acvitityWeekday = activityData?.weekday
-        container.acvitityTime = activityData?.time
+        container.acvitityWeekday = activityData?.weekday;
+        container.acvitityTime = activityData?.time;
 
         if (user?.id === auth?.userId) {
           setSignedUp(true);

@@ -2,12 +2,15 @@ import FooterMenu from "../components/FooterMenu";
 import Heading2 from "../components/subcomponents/texts/Heading2";
 import WrapperCenterContent from "../components/WrapperCenterContent";
 import ActivitiesCard from "../components/ActivitiesCard";
+import LoginIcon from "../components/subcomponents/icons/LoginIcon";
+import Heading5 from "../components/subcomponents/texts/Heading5";
+
 import axios from "../apis/axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import LoginIcon from "../components/subcomponents/icons/LoginIcon";
 import { useAuth } from "../context/AuthProvider";
-import Heading5 from "../components/subcomponents/texts/Heading5";
+
+
 
 const ACTIVITIES_URL = "api/v1/activities";
 
@@ -15,7 +18,7 @@ const Activities = () => {
   const useA = useAuth();
   const auth = useA.auth;
 
-  console.log(auth);
+  // console.log(auth);
 
   const login = auth.login;
 
