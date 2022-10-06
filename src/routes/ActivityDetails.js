@@ -16,56 +16,102 @@ const ActivityDetails = () => {
   const auth = useA.auth;
 
   const login = auth.login;
-
-  // console.log(auth);
+  const userId = auth.userId;
+  const token = auth.token;
 
   const [signedUp, setSignedUp] = useState(false);
 
   let { id } = useParams();
 
   const ACTIVITY_URL = `api/v1/activities/${id}`;
+  const USER_AND_ACTIVITY_URL = `api/v1/users/${userId}/activities/${id}`;
 
   const [activityData, setActivityData] = useState();
+  const [activityUserArray, setActivityUserArray] = useState();
 
   useEffect(() => {
     fetchActivity();
     // eslint-disable-next-line
-  }, [activityData?.id]);
+  }, [activityData?.id, signedUp, id, activityUserArray]);
 
   const fetchActivity = async () => {
     try {
       const response = await axios.get(ACTIVITY_URL);
 
-      let activity = response?.data;
+      const activity = response?.data;
 
       setActivityData(activity);
 
-      console.log(activityData && activityData);
+      // console.log(activityData && activityData);
+
+      setActivityUserArray(() => {
+        activityData?.users?.map((user) => {
+          const container = {};
+          if (auth?.userId) {
+            container.age = user.age;
+            container.acvitityWeekday = activityData?.weekday;
+
+            if (user?.id === auth?.userId) {
+              setSignedUp(true);
+            }
+          }
+          return container;
+        })
+      }
+      );
+
+      // console.log(activityUsersArray?.length && activityUsersArray);
     } catch (err) {
       console.log(err);
     }
+  };
 
-    const activityUsersArray = activityData?.users?.map((user) => {
-      const container = {};
-      if (auth?.userId) {
-        container.username = user.username;
-        container.userId = user.id;
-        container.age = user.age;
-        container.firstname = user.firstname;
-        container.lastname = user.lastname;
-        container.acvitityWeekday = activityData?.weekday;
-        container.acvitityTime = activityData?.time;
+  let deleteUserFromActivity;
+  let addUserToActivity;
 
-        if (user?.id === auth?.userId) {
-          setSignedUp(true);
+  const handleClick = () => {
+    if (signedUp) {
+      deleteUserFromActivity = async () => {
+        try {
+          if (token && id && userId) {
+            await axios.delete(USER_AND_ACTIVITY_URL, {
+              headers: {
+                Authorization: "Bearer " + token,
+              },
+            });
+          }
+          console.log("user deleted from activity");
+          setSignedUp(false);
+        } catch (err) {
+          console.log(err);
         }
-      }
-      return container;
-    });
+      };
+      deleteUserFromActivity();
 
-    console.log(activityUsersArray && activityUsersArray);
+      console.log(signedUp);
+    } else {
+      addUserToActivity = async () => {
+        try {
+          if (token === auth.token && id && userId === auth.userId) {
+            await axios.post(USER_AND_ACTIVITY_URL, {
+              headers: {
+                Authorization: "Bearer " + token,
+              },
+            });
+          }
+          console.log("user added to activity");
+          setSignedUp(true);
+        } catch (err) {
+          console.log(err);
+        }
+      };
+      addUserToActivity();
 
-    // console.log(signedUp);
+      console.log(signedUp);
+      console.log(userId);
+      console.log(id);
+      console.log(token);
+    }
   };
 
   return (
@@ -99,6 +145,7 @@ const ActivityDetails = () => {
               <Btn
                 text={signedUp ? "Forlad" : "Tilmeld"}
                 styles="btn activity-details-btn"
+                handleClick={handleClick && handleClick}
               />
             )}
           </div>
