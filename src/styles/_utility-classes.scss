@@ -45,8 +45,11 @@
 .black-color-important {
   color: $black !important;
 }
-.yellow-color-important {
+.purple-color-important {
   color: $purple !important;
+}
+.light-purple-color-important {
+  color: $light-purple !important;
 }
 .grey-color-important {
   color: $grey !important;
@@ -57,7 +60,7 @@
 .black-color {
   color: $black;
 }
-.yellow-color {
+.purple-color {
   color: $purple;
 }
 .grey-color {
@@ -77,4 +80,18 @@
 }
 .font-weight-bold {
   font-weight: $font-weight-bold;
+}
+//font sizes
+
+.font-size-regular-important {
+  font-size: 1.5rem!important;
+}
+.font-size-medium-important {
+  font-size: 2rem!important;
+}
+.font-size-semi-big-important {
+  font-size: 3rem!important;
+}
+.font-size-big-important {
+  font-size: 4rem!important;
 }
