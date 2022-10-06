@@ -1,8 +1,9 @@
+import Btn from "./Btn";
+
+import { useNavigate } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
 import { useAuth } from "../context/AuthProvider";
 import axios from "../apis/axios";
-import Btn from "./Btn";
-import { useNavigate } from "react-router-dom";
 
 const LOGIN_URL = "auth/token";
 
@@ -18,7 +19,6 @@ const Login = () => {
 
   const useA = useAuth();
   const setAuth = useA.setAuth;
-  // const auth = useA.auth;
 
   useEffect(() => {
     userRef.current.focus();
@@ -42,8 +42,6 @@ const Login = () => {
         }
       );
 
-      // console.log(JSON.stringify(response?.data));
-      //console.log(JSON.stringify(response));
       const token = response?.data?.token;
       const userId = response?.data?.userId;
       const role = response?.data?.role;
@@ -57,9 +55,6 @@ const Login = () => {
         role,
         login,
       });
-
-      // console.log(auth && auth);
-      console.log(response?.data && response?.data);
 
       setUser("");
       setPwd("");

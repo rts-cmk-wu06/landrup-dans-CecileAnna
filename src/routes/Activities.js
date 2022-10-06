@@ -5,20 +5,16 @@ import ActivitiesCard from "../components/ActivitiesCard";
 import LoginIcon from "../components/subcomponents/icons/LoginIcon";
 import Heading5 from "../components/subcomponents/texts/Heading5";
 
+import { Link } from "react-router-dom";
 import axios from "../apis/axios";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthProvider";
-
-
 
 const ACTIVITIES_URL = "api/v1/activities";
 
 const Activities = () => {
   const useA = useAuth();
   const auth = useA.auth;
-
-  // console.log(auth);
 
   const login = auth.login;
 
@@ -36,8 +32,6 @@ const Activities = () => {
       let activities = response?.data;
 
       setActivitiesData(activities);
-
-      // console.log(activitiesData && activitiesData);
     } catch (err) {
       console.log(err);
     }
