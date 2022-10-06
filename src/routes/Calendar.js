@@ -2,14 +2,15 @@ import CalendarCard from "../components/CalendarCard";
 import FooterMenu from "../components/FooterMenu";
 import Heading2 from "../components/subcomponents/texts/Heading2";
 import WrapperCenterContent from "../components/WrapperCenterContent";
+import Heading3 from "../components/subcomponents/texts/Heading3";
+import Heading5 from "../components/subcomponents/texts/Heading5";
+import LoginIcon from "../components/subcomponents/icons/LoginIcon";
 
 import axios from "../apis/axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthProvider";
-import Heading3 from "../components/subcomponents/texts/Heading3";
-import Heading5 from "../components/subcomponents/texts/Heading5";
-import LoginIcon from "../components/subcomponents/icons/LoginIcon";
+
 
 const Calendar = () => {
   const useA = useAuth();
@@ -52,7 +53,7 @@ const Calendar = () => {
 
         setUserActivitiesData(userActivities);
 
-        console.log(userActivitiesData && userActivitiesData);
+        // console.log(userActivitiesData && userActivitiesData);
       }
     } catch (err) {
       console.log(err);
@@ -97,7 +98,7 @@ const Calendar = () => {
       <WrapperCenterContent>
         <Heading2 text="Kalender" />
 
-        {userActivitiesData && userId && role && role === "default" && (
+        {userActivitiesData?.length && userId && role && role === "default" && (
           <main className="calender--cards-wrapper">
             {userActivitiesData.map((userActivityData) => (
               <Link
@@ -153,6 +154,14 @@ const Calendar = () => {
             </Link>
           </>
         )}
+
+        {login && !instructorActivitiesArray?.length && !userActivitiesData?.length && (
+          <Heading3
+            text="Tilmeld dig danseklasser for at se dem i din kalender"
+            styles="white-color-important"
+          />
+        )}
+
       </WrapperCenterContent>
       <FooterMenu />
     </>
