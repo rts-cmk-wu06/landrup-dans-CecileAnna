@@ -29,6 +29,7 @@ const ActivityDetails = () => {
   const [activityData, setActivityData] = useState();
   const [activityUserArray, setActivityUserArray] = useState();
 
+
   useEffect(() => {
     fetchActivity();
     // eslint-disable-next-line
@@ -56,9 +57,8 @@ const ActivityDetails = () => {
             }
           }
           return container;
-        })
-      }
-      );
+        });
+      });
 
       // console.log(activityUsersArray?.length && activityUsersArray);
     } catch (err) {
