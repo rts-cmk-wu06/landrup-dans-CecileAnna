@@ -1,6 +1,7 @@
 import FooterMenu from "../components/FooterMenu";
 import SearchIcon from "../components/subcomponents/icons/SearchIcon";
 import Heading2 from "../components/subcomponents/texts/Heading2";
+import Heading3 from "../components/subcomponents/texts/Heading3";
 import WrapperCenterContent from "../components/WrapperCenterContent";
 import ActivitiesCard from "../components/ActivitiesCard";
 
@@ -13,6 +14,7 @@ const ACTIVITIES_URL = "api/v1/activities";
 const Search = () => {
   const [searchData, setSearchData] = useState("");
   const [activitiesData, setActivitiesData] = useState("");
+  const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
     fetchActivities();
@@ -26,11 +28,16 @@ const Search = () => {
       let activities = response?.data;
 
       setActivitiesData(activities);
-
-      // console.log(activitiesData && activitiesData);
     } catch (err) {
       console.log(err);
     }
+  };
+  const handleFilter = (e) => {
+    setSearchData(e.target.value);
+    const newFilter = activitiesData.filter((activity) => {
+      return activity.name.toLowerCase().includes(searchData.toLowerCase());
+    });
+    setFilteredData(newFilter);
   };
 
   return (
@@ -42,15 +49,15 @@ const Search = () => {
             type="text"
             id="username"
             autoComplete="off"
-            onChange={(e) => setSearchData(e.target.value)}
+            onChange={handleFilter}
             value={searchData}
             className="search--input"
           />
           <SearchIcon styles="search--icon" />
         </div>
-        {activitiesData[0] && (
+        {filteredData.length !== 0 && searchData.length !== 0 && (
           <div className="activities-cards-container search--activities-cards-container">
-            {activitiesData.map((activityData) => (
+            {filteredData.map((activityData) => (
               <Link
                 to={`/activities/${activityData.id}`}
                 style={{ textDecoration: "none" }}
@@ -64,6 +71,12 @@ const Search = () => {
               </Link>
             ))}
           </div>
+        )}
+        {filteredData.length === 0 && (
+          <Heading3
+            text="Der blev ikke fundet nogle aktiviteter. Prøv at søge efter noget andet."
+            styles="white-color-important line-height-2rem"
+          />
         )}
       </WrapperCenterContent>
       <FooterMenu />
