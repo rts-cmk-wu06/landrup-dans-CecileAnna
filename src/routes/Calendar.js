@@ -11,7 +11,6 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthProvider";
 
-
 const Calendar = () => {
   const useA = useAuth();
   const auth = useA.auth;
@@ -98,7 +97,7 @@ const Calendar = () => {
       <WrapperCenterContent>
         <Heading2 text="Kalender" />
 
-        {userActivitiesData?.length && userId && role && role === "default" && (
+        {userId && role && role === "default" && userActivitiesData?.length && (
           <main className="calender--cards-wrapper">
             {userActivitiesData.map((userActivityData) => (
               <Link
@@ -115,10 +114,10 @@ const Calendar = () => {
           </main>
         )}
 
-        {instructorActivitiesArray?.length &&
-          userId &&
+        {userId &&
           role &&
-          role === "instructor" && (
+          role === "instructor" &&
+          instructorActivitiesArray?.length && (
             <main className="calender--cards-wrapper">
               {instructorActivitiesArray.map((instructorActivity) => (
                 <Link
@@ -155,13 +154,14 @@ const Calendar = () => {
           </>
         )}
 
-        {login && !instructorActivitiesArray?.length && !userActivitiesData?.length && (
-          <Heading3
-            text="Tilmeld dig danseklasser for at se dem i din kalender"
-            styles="white-color-important"
-          />
-        )}
-
+        {login &&
+          !instructorActivitiesArray?.length &&
+          !userActivitiesData?.length && (
+            <Heading3
+              text="Tilmeld dig danseklasser for at se dem i din kalender"
+              styles="white-color-important"
+            />
+          )}
       </WrapperCenterContent>
       <FooterMenu />
     </>
