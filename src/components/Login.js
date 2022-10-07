@@ -62,24 +62,37 @@ const Login = () => {
       navigate("/activities");
     } catch (err) {
       if (!err?.response) {
-        setErrMsg("No server response");
+        setErrMsg("Ingen server respons");
       } else if (err.response?.status === 400) {
-        setErrMsg("Missing username or password");
+        setErrMsg("Mangler brugernavn eller kodeord");
       } else if (err.response?.status === 401) {
-        setErrMsg("Unauthorized");
+        setErrMsg("Uautoriseret. Måske forkert kode eller brugernavn?");
       } else {
-        setErrMsg("Login failed");
+        setErrMsg("Login fejlede");
       }
       errRef.current.focus();
     }
   };
+
+  // const handlePwdOnChange = (e) => {
+  //   let value;
+
+  //   if (e.target.value >= 4) {
+  //     value = e.target.value;
+  //     setErrMsg("");
+  //   } else {
+  //     value = setErrMsg("Dit kodeord skal være mindst 4 tegn");
+  //   }
+
+  //   setPwd(value);
+  // };
 
   return (
     <>
       <section>
         <h3
           ref={errRef}
-          className="Heading5"
+          className="Heading5 login--err-msg"
           aria-live="assertive"
           style={
             errMsg
@@ -90,11 +103,7 @@ const Login = () => {
           {errMsg}
         </h3>
 
-        <form
-          onSubmit={handleSubmit}
-          // style={{ display: "flex", flexFlow: "column nowrap", gap: "1rem" }}
-          className="login--form"
-        >
+        <form onSubmit={handleSubmit} className="login--form">
           <input
             type="text"
             id="username"
