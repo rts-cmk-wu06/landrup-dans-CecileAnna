@@ -97,7 +97,7 @@ const Calendar = () => {
       <WrapperCenterContent>
         <Heading2 text="Kalender" />
 
-        {userId && role && userActivitiesData?.length  !== 0 && (
+        {userId && role && userActivitiesData?.length > 0 && (
           <main className="calender--cards-wrapper">
             {userActivitiesData.map((userActivityData) => (
               <Link
@@ -117,7 +117,7 @@ const Calendar = () => {
         {userId &&
           role &&
           role === "instructor" &&
-          instructorActivitiesArray?.length !== 0 && (
+          instructorActivitiesArray?.length > 0 && (
             <main className="calender--cards-wrapper">
               {instructorActivitiesArray.map((instructorActivity) => (
                 <Link
