@@ -13,6 +13,11 @@ const Login = () => {
   const userRef = useRef();
   const errRef = useRef();
 
+  // //all letters and numbers, min four characters, max 29
+  // const userRegex = /^[A-Za-z][A-Za-z0-9_]{4,29}$/;
+  // // four numbers exactly
+  // const pwdRegex = /^[0-9]{4}$/;
+
   const [user, setUser] = useState("");
   const [pwd, setPwd] = useState("");
   const [errMsg, setErrMsg] = useState("");
